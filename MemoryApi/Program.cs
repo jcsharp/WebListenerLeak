@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.WindowsServices;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Server;
 
 namespace MemoryApi
@@ -34,8 +33,8 @@ namespace MemoryApi
             var host = new WebHostBuilder()
                 .UseWebListener(options =>
                 {
-                    options.ListenerSettings.Authentication.Schemes
-                    = AuthenticationSchemes.NTLM; // | AuthenticationSchemes.Basic | AuthenticationSchemes.Negotiate;
+                    //remove these two lines to suppress the memory leak...
+                    options.ListenerSettings.Authentication.Schemes = AuthenticationSchemes.NTLM;
                     options.ListenerSettings.Authentication.AllowAnonymous = false;
                 })
                 .UseUrls(urls.Split(','))

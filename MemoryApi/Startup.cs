@@ -16,14 +16,7 @@ namespace MemoryApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-            services
-                .AddMvc()
-                .AddJsonOptions(options =>
-                {
-                    //prevents the serializer from changing the field names to camel case
-                    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-                })
-                .AddXmlDataContractSerializerFormatters();
+            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory, IApplicationLifetime lifetime)
