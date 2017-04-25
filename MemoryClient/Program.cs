@@ -8,7 +8,7 @@ namespace MemoryClient
         static void Main(string[] args)
         {
             var perf = new LoadTest("http://localhost:5000");
-            perf.Run(TimeSpan.FromMinutes(1), 4);
+            perf.Run(TimeSpan.FromMinutes(5), 8);
         }
     }
 }

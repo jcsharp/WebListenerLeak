@@ -33,7 +33,7 @@ namespace MemoryApi
             var host = new WebHostBuilder()
                 .UseWebListener(options =>
                 {
-                    options.ListenerSettings.Authentication.Schemes = AuthenticationSchemes.Kerberos;
+                    options.ListenerSettings.Authentication.Schemes = AuthenticationSchemes.Kerberos | AuthenticationSchemes.Basic;
                     //remove the following line to suppress the memory leak...
                     options.ListenerSettings.Authentication.AllowAnonymous = false;
                 })
